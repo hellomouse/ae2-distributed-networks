@@ -1,6 +1,6 @@
 package net.hellomouse.ae2dn.extension;
 
-import net.hellomouse.ae2dn.TrunkIssue;
+import net.hellomouse.ae2dn.pathfinding.TrunkIssue;
 import org.jetbrains.annotations.NotNull;
 
 public interface PathingCalculationExt {

@@ -1,4 +1,4 @@
-package net.hellomouse.ae2dn;
+package net.hellomouse.ae2dn.pathfinding;
 
 import java.util.HashSet;
 import java.util.Set;

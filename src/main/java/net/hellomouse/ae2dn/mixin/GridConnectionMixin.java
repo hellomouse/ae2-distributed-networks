@@ -1,7 +1,7 @@
 package net.hellomouse.ae2dn.mixin;
 
 import appeng.me.GridConnection;
-import net.hellomouse.ae2dn.ControllerInfo.SubtreeInfo;
+import net.hellomouse.ae2dn.pathfinding.ControllerInfo.SubtreeInfo;
 import net.hellomouse.ae2dn.extension.HasSubtreeInfo;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;

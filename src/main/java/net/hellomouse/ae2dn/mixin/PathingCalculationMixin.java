@@ -4,7 +4,6 @@ import appeng.api.networking.GridFlags;
 import appeng.api.networking.IGrid;
 import appeng.api.networking.IGridNode;
 import appeng.blockentity.networking.ControllerBlockEntity;
-import appeng.blockentity.storage.DriveBlockEntity;
 import appeng.me.GridConnection;
 import appeng.me.GridNode;
 import appeng.me.pathfinding.IPathItem;
@@ -13,10 +12,11 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.hellomouse.ae2dn.Config;
-import net.hellomouse.ae2dn.ControllerInfo;
-import net.hellomouse.ae2dn.ControllerInfo.SubtreeInfo;
-import net.hellomouse.ae2dn.ControllerInfo.TrunkSearchState;
-import net.hellomouse.ae2dn.TrunkIssue;
+import net.hellomouse.ae2dn.pathfinding.ControllerInfo;
+import net.hellomouse.ae2dn.pathfinding.ControllerInfo.SubtreeInfo;
+import net.hellomouse.ae2dn.pathfinding.ControllerInfo.TrunkSearchState;
+import net.hellomouse.ae2dn.SubnetManagerBlockEntity;
+import net.hellomouse.ae2dn.pathfinding.TrunkIssue;
 import net.hellomouse.ae2dn.extension.HasSubtreeInfo;
 import net.hellomouse.ae2dn.extension.PathingCalculationExt;
 import net.hellomouse.ae2dn.extension.PathingServiceExt;
@@ -339,7 +339,7 @@ public abstract class PathingCalculationMixin implements PathingCalculationExt {
 
             smCheck: if (Config.requireSubnetManager) {
                 // TODO: SubnetManagerBlockEntity.class
-                for (var node : grid.getMachineNodes(DriveBlockEntity.class)) {
+                for (var node : grid.getMachineNodes(SubnetManagerBlockEntity.class)) {
                     // require at least one subnet manager to have a channel
                     if (channelNodes.contains((GridNode) node)) {
                         break smCheck;

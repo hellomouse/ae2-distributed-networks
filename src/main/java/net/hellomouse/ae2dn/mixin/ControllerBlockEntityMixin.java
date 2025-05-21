@@ -5,7 +5,7 @@ import appeng.api.networking.pathing.ControllerState;
 import appeng.blockentity.networking.ControllerBlockEntity;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import net.hellomouse.ae2dn.TrunkIssue;
+import net.hellomouse.ae2dn.pathfinding.TrunkIssue;
 import net.hellomouse.ae2dn.extension.PathingServiceExt;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

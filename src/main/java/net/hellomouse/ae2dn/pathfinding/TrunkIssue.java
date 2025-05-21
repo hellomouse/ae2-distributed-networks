@@ -1,4 +1,4 @@
-package net.hellomouse.ae2dn;
+package net.hellomouse.ae2dn.pathfinding;
 
 public enum TrunkIssue {
     NONE,

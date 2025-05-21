@@ -6,7 +6,7 @@ import appeng.integration.modules.igtooltip.parts.ChannelDataProvider;
 import appeng.me.service.PathingService;
 import appeng.parts.networking.IUsedChannelProvider;
 import com.llamalad7.mixinextras.sugar.Local;
-import net.hellomouse.ae2dn.TrunkIssue;
+import net.hellomouse.ae2dn.pathfinding.TrunkIssue;
 import net.hellomouse.ae2dn.extension.PathingServiceExt;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;

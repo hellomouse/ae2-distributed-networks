@@ -1,6 +1,6 @@
 package net.hellomouse.ae2dn.extension;
 
-import net.hellomouse.ae2dn.ControllerInfo.SubtreeInfo;
+import net.hellomouse.ae2dn.pathfinding.ControllerInfo.SubtreeInfo;
 import org.jetbrains.annotations.Nullable;
 
 import java.lang.ref.WeakReference;

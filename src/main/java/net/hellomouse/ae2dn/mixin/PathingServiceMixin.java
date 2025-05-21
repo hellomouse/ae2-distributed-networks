@@ -10,11 +10,10 @@ import appeng.me.pathfinding.PathingCalculation;
 import appeng.me.service.PathingService;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.hellomouse.ae2dn.Config;
-import net.hellomouse.ae2dn.TrunkIssue;
+import net.hellomouse.ae2dn.pathfinding.TrunkIssue;
 import net.hellomouse.ae2dn.extension.ControllerValidatorExt;
 import net.hellomouse.ae2dn.extension.PathingServiceExt;
 import net.hellomouse.ae2dn.extension.PathingCalculationExt;
-import net.minecraft.core.BlockPos;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -24,9 +23,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -107,17 +103,6 @@ public class PathingServiceMixin implements PathingServiceExt {
             controllerState = ControllerValidator.calculateState(controllers);
             return;
         }
-
-        Constructor<ControllerValidator> validatorConstructor;
-        Method hasControllerCross;
-        try {
-            validatorConstructor = ControllerValidator.class.getDeclaredConstructor(BlockPos.class);
-            hasControllerCross = ControllerValidator.class.getDeclaredMethod("hasControllerCross", Collection.class);
-        } catch (NoSuchMethodException ex) {
-            throw new RuntimeException("reflection failed", ex);
-        }
-        validatorConstructor.setAccessible(true);
-        hasControllerCross.setAccessible(true);
 
         if (controllers.isEmpty()) {
             controllerState = ControllerState.NO_CONTROLLER;
