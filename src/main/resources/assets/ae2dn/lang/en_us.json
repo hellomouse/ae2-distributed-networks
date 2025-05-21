@@ -1,0 +1,4 @@
+{
+  "waila.ae2dn.ErrorControllerTrunkInvalid": "Error: Invalid trunk connection between controllers",
+  "waila.ae2dn.ErrorMissingSubnetManager": "Error: Network missing subnet manager"
+}

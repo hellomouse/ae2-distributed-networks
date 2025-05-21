@@ -1,0 +1,18 @@
+{
+  "package": "net.hellomouse.ae2dn.mixin",
+  "required": true,
+  "minVersion": "0.8.0",
+  "mixins": [
+    "ChannelDataProviderMixin",
+    "ControllerBlockEntityMixin",
+    "ControllerValidatorAccessor",
+    "ControllerValidatorMixin",
+    "GridConnectionMixin",
+    "GridNodeMixin",
+    "PathingCalculationMixin",
+    "PathingServiceMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
