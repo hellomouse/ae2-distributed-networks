@@ -15,7 +15,7 @@ import net.hellomouse.ae2dn.Config;
 import net.hellomouse.ae2dn.pathfinding.ControllerInfo;
 import net.hellomouse.ae2dn.pathfinding.ControllerInfo.SubtreeInfo;
 import net.hellomouse.ae2dn.pathfinding.ControllerInfo.TrunkSearchState;
-import net.hellomouse.ae2dn.SubnetManagerBlockEntity;
+import net.hellomouse.ae2dn.RouteDistributorBlockEntity;
 import net.hellomouse.ae2dn.pathfinding.TrunkIssue;
 import net.hellomouse.ae2dn.extension.HasSubtreeInfo;
 import net.hellomouse.ae2dn.extension.PathingCalculationExt;
@@ -337,16 +337,15 @@ public abstract class PathingCalculationMixin implements PathingCalculationExt {
                 return;
             }
 
-            smCheck: if (Config.requireSubnetManager) {
-                // TODO: SubnetManagerBlockEntity.class
-                for (var node : grid.getMachineNodes(SubnetManagerBlockEntity.class)) {
+            smCheck: if (Config.requireRouteDistributor) {
+                for (var node : grid.getMachineNodes(RouteDistributorBlockEntity.class)) {
                     // require at least one subnet manager to have a channel
                     if (channelNodes.contains((GridNode) node)) {
                         break smCheck;
                     }
                 }
 
-                ae2dn$trunkIssue = TrunkIssue.MISSING_SUBNET_MANAGER;
+                ae2dn$trunkIssue = TrunkIssue.MISSING_ROUTE_DISTRIBUTOR;
                 ci.cancel();
             }
         }

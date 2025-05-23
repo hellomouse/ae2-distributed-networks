@@ -5,7 +5,7 @@ import appeng.core.MainCreativeTab;
 import appeng.core.definitions.BlockDefinition;
 import appeng.core.definitions.ItemDefinition;
 import net.hellomouse.ae2dn.AE2DistributedNetworks;
-import net.hellomouse.ae2dn.SubnetManagerBlock;
+import net.hellomouse.ae2dn.RouteDistributorBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -25,10 +25,10 @@ public class DNBlocks {
         return Collections.unmodifiableList(BLOCKS);
     }
 
-    public static final BlockDefinition<SubnetManagerBlock> SUBNET_MANAGER_BLOCK = block(
-        "Subnet Manager",
-        "subnet_manager",
-        SubnetManagerBlock::new,
+    public static final BlockDefinition<RouteDistributorBlock> ROUTE_DISTRIBUTOR_BLOCK = block(
+        "Route Distributor",
+        "route_distributor",
+        RouteDistributorBlock::new,
         AEBaseBlockItem::new
     );
 

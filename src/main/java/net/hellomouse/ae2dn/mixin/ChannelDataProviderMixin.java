@@ -39,9 +39,9 @@ public class ChannelDataProviderMixin {
                     .withStyle(ChatFormatting.RED)
             );
             ci.cancel();
-        } else if (error.equals(TrunkIssue.MISSING_SUBNET_MANAGER.name())) {
+        } else if (error.equals(TrunkIssue.MISSING_ROUTE_DISTRIBUTOR.name())) {
             tooltip.addLine(
-                Component.translatable("waila.ae2dn.ErrorMissingSubnetManager")
+                Component.translatable("waila.ae2dn.ErrorMissingRouteDistributor")
                     .withStyle(ChatFormatting.RED)
             );
             ci.cancel();

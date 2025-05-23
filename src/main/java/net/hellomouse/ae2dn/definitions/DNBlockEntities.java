@@ -5,7 +5,7 @@ import appeng.blockentity.AEBaseBlockEntity;
 import appeng.core.definitions.BlockDefinition;
 import appeng.core.definitions.DeferredBlockEntityType;
 import net.hellomouse.ae2dn.AE2DistributedNetworks;
-import net.hellomouse.ae2dn.SubnetManagerBlockEntity;
+import net.hellomouse.ae2dn.RouteDistributorBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -27,11 +27,11 @@ public class DNBlockEntities {
         return Collections.unmodifiableList(BLOCK_ENTITY_TYPES);
     }
 
-    public static final Supplier<BlockEntityType<SubnetManagerBlockEntity>> SUBNET_MANAGER = create(
-        "subnet_manager",
-        SubnetManagerBlockEntity.class,
-        SubnetManagerBlockEntity::new,
-        DNBlocks.SUBNET_MANAGER_BLOCK
+    public static final Supplier<BlockEntityType<RouteDistributorBlockEntity>> ROUTE_DISTRIBUTOR = create(
+        "route_distributor",
+        RouteDistributorBlockEntity.class,
+        RouteDistributorBlockEntity::new,
+        DNBlocks.ROUTE_DISTRIBUTOR_BLOCK
     );
 
     private static <T extends AEBaseBlockEntity> Supplier<BlockEntityType<T>> create(

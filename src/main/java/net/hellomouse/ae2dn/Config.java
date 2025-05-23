@@ -13,18 +13,18 @@ public class Config {
             .comment("Whether to enable mod functionality")
             .define("enable", true);
 
-    private static final ModConfigSpec.BooleanValue REQUIRE_SUBNET_MANAGER = BUILDER
+    private static final ModConfigSpec.BooleanValue REQUIRE_ROUTE_DISTRIBUTOR = BUILDER
         .comment("Whether the Subnet Manager is required to allow multiple controllers on a network")
         .define("enable", true);
 
     static final ModConfigSpec SPEC = BUILDER.build();
 
     public static boolean globalEnable;
-    public static boolean requireSubnetManager;
+    public static boolean requireRouteDistributor;
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event) {
         globalEnable = GLOBAL_ENABLE.get();
-        requireSubnetManager = REQUIRE_SUBNET_MANAGER.get();
+        requireRouteDistributor = REQUIRE_ROUTE_DISTRIBUTOR.get();
     }
 }

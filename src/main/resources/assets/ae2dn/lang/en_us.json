@@ -1,4 +1,5 @@
 {
   "waila.ae2dn.ErrorControllerTrunkInvalid": "Error: Invalid trunk connection between controllers",
-  "waila.ae2dn.ErrorMissingSubnetManager": "Error: Network missing subnet manager"
+  "waila.ae2dn.ErrorMissingRouteDistributor": "Error: Network missing route distributor",
+  "block.ae2dn.route_distributor": "Route Distributor"
 }
