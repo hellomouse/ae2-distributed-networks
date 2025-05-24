@@ -1,5 +1,10 @@
 {
   "waila.ae2dn.ErrorControllerTrunkInvalid": "Error: Invalid trunk connection between controllers",
   "waila.ae2dn.ErrorMissingRouteDistributor": "Error: Network missing route distributor",
+  "waila.ae2dn.RouteDistributorStatus": "Status: ",
+  "waila.ae2dn.RouteDistributorStatusStandby": "Standby",
+  "waila.ae2dn.RouteDistributorStatusActive": "Active",
+  "waila.ae2dn.ControllerStructureCount": "Controller Structures: %s",
+  "config.jade.plugin_ae2dn.route_distributor": "AE2DN Route Distributor",
   "block.ae2dn.route_distributor": "Route Distributor"
 }

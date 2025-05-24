@@ -31,8 +31,8 @@ import java.util.Set;
 public class PathingServiceMixin implements PathingServiceExt {
     @Unique private TrunkIssue ae2dn$trunkIssue = TrunkIssue.NONE;
     @Unique private TrunkIssue ae2dn$oldTrunkIssue = TrunkIssue.NONE;
-    /** Whether multiple distinct controller structures exist */
-    @Unique private boolean ae2dn$hasMultipleControllers = false;
+    /** How many distinct controller structures exist */
+    @Unique private int ae2dn$controllerStructureCount;
     @Unique private ControllerState ae2dn$oldControllerState = null;
 
     @Shadow private boolean recalculateControllerNextTick;
@@ -48,8 +48,8 @@ public class PathingServiceMixin implements PathingServiceExt {
 
     @Unique
     @Override
-    public boolean ae2dn$hasMultipleControllers() {
-        return ae2dn$hasMultipleControllers;
+    public int ae2dn$getControllerStructureCount() {
+        return ae2dn$controllerStructureCount;
     }
 
     @Inject(
@@ -97,10 +97,13 @@ public class PathingServiceMixin implements PathingServiceExt {
     private void updateControllerState() {
         // why overwrite? because we pretty much replace the whole method anyway
         recalculateControllerNextTick = false;
-        ae2dn$hasMultipleControllers = false;
+        ae2dn$controllerStructureCount = 0;
 
         if (!Config.globalEnable) {
             controllerState = ControllerValidator.calculateState(controllers);
+            if (controllerState == ControllerState.CONTROLLER_ONLINE) {
+                ae2dn$controllerStructureCount = 1;
+            }
             return;
         }
 
@@ -114,7 +117,6 @@ public class PathingServiceMixin implements PathingServiceExt {
             return;
         }
 
-        int distinctControllers = 0;
         var unvisited = new HashSet<>(controllers);
 
         while (!unvisited.isEmpty()) {
@@ -135,12 +137,9 @@ public class PathingServiceMixin implements PathingServiceExt {
                 return;
             }
 
-            distinctControllers++;
+            ae2dn$controllerStructureCount++;
         }
 
-        if (distinctControllers > 1) {
-            ae2dn$hasMultipleControllers = true;
-        }
         controllerState = ControllerState.CONTROLLER_ONLINE;
     }
 }

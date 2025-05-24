@@ -14,17 +14,28 @@ public class Config {
             .define("enable", true);
 
     private static final ModConfigSpec.BooleanValue REQUIRE_ROUTE_DISTRIBUTOR = BUILDER
-        .comment("Whether the Subnet Manager is required to allow multiple controllers on a network")
-        .define("enable", true);
+        .comment("Whether the route distributor is required to allow multiple controllers on a network")
+        .define("requireRouteDistributor", true);
+
+    private static final ModConfigSpec.ConfigValue<Integer> ROUTE_CONTROLLER_PASSIVE_ENERGY_COST = BUILDER
+        .comment("Passive energy consumption of the route distributor block")
+        .define("routeDistributorPassiveEnergyCost", 25);
+    private static final ModConfigSpec.ConfigValue<Integer> ROUTE_DISTRIBUTOR_PER_CONTROLLER_ENERGY_COST = BUILDER
+        .comment("How much energy the route distributor consumes per controller structure in the network beyond the first")
+        .define("routeDistributorPerControllerEnergyCost", 100);
 
     static final ModConfigSpec SPEC = BUILDER.build();
 
     public static boolean globalEnable;
     public static boolean requireRouteDistributor;
+    public static int rdPerControllerEnergyCost;
+    public static int rdPassiveEnergyCost;
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event) {
         globalEnable = GLOBAL_ENABLE.get();
         requireRouteDistributor = REQUIRE_ROUTE_DISTRIBUTOR.get();
+        rdPerControllerEnergyCost = ROUTE_DISTRIBUTOR_PER_CONTROLLER_ENERGY_COST.get();
+        rdPassiveEnergyCost = ROUTE_CONTROLLER_PASSIVE_ENERGY_COST.get();
     }
 }

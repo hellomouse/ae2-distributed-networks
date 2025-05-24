@@ -1,0 +1,6 @@
+{
+  "parent": "ae2dn:block/route_distributor_unpowered",
+  "textures": {
+    "up": "minecraft:block/stone"
+  }
+}

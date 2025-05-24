@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "ae2dn:block/route_distributor",
+    "east": "ae2dn:block/route_distributor",
+    "west": "ae2dn:block/route_distributor",
+    "north": "ae2dn:block/route_distributor",
+    "south": "ae2dn:block/route_distributor",
+    "up": "ae2dn:block/route_distributor",
+    "particle": "ae2dn:block/route_distributor"
+  }
+}

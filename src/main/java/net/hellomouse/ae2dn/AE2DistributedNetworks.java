@@ -5,7 +5,6 @@ import appeng.api.networking.IInWorldGridNodeHost;
 import net.hellomouse.ae2dn.definitions.DNBlockEntities;
 import net.hellomouse.ae2dn.definitions.DNBlocks;
 import net.hellomouse.ae2dn.definitions.DNItems;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import org.slf4j.Logger;
 

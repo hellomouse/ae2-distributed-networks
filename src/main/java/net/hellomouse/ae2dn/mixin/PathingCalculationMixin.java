@@ -56,6 +56,7 @@ public abstract class PathingCalculationMixin implements PathingCalculationExt {
     @Shadow @Final private Set<GridNode> channelNodes;
     @Shadow @Final private Set<IPathItem> visited;
     @Shadow protected abstract void enqueue(IPathItem pathItem, int queueIndex);
+    @Shadow private int channelsByBlocks;
 
     @Unique
     @Override
@@ -117,6 +118,9 @@ public abstract class PathingCalculationMixin implements PathingCalculationExt {
             } else if (sideA instanceof GridNode gn) {
                 gn.incrementChannelCount(maxChannels);
             }
+            // PathingCalculation counts GridConnections as well for some reason, so replicate that behavior
+            // this is probably a documentation issue?
+            channelsByBlocks += maxChannels;
             sideA = sideA.getControllerRoute();
         }
         var sideB = other;
@@ -126,6 +130,7 @@ public abstract class PathingCalculationMixin implements PathingCalculationExt {
             } else if (sideB instanceof GridNode gn) {
                 gn.incrementChannelCount(maxChannels);
             }
+            channelsByBlocks += maxChannels;
             sideB = sideB.getControllerRoute();
         }
         // setControllerRoute sets usedChannels to 0 so we don't need to clear the rest
@@ -341,6 +346,7 @@ public abstract class PathingCalculationMixin implements PathingCalculationExt {
                 for (var node : grid.getMachineNodes(RouteDistributorBlockEntity.class)) {
                     // require at least one subnet manager to have a channel
                     if (channelNodes.contains((GridNode) node)) {
+                        ((RouteDistributorBlockEntity) ((GridNode) node).getOwner()).setPrimary(true);
                         break smCheck;
                     }
                 }

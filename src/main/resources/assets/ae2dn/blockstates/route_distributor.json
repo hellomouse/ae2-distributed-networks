@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "operational_state=unpowered": {
+      "model": "ae2dn:block/route_distributor_unpowered"
+    },
+    "operational_state=missing_channel": {
+      "model": "ae2dn:block/route_distributor_missing_channel"
+    },
+    "operational_state=standby": {
+      "model": "ae2dn:block/route_distributor_standby"
+    },
+    "operational_state=active": {
+      "model": "ae2dn:block/route_distributor_active"
+    }
+  }
+}
